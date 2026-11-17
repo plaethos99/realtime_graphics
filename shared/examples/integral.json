@@ -1,0 +1,18 @@
+{
+  "match": ["integral", "area under", "integrate", "calculus"],
+  "say": "The area is one third. The antiderivative of x squared is x cubed over three, which is one third at x equals 1 and zero at 0.",
+  "scene": {
+    "title": "$\\int_0^1 x^2\\,dx = \\frac{1}{3}$",
+    "panel": {
+      "type": "plot",
+      "x": [-0.5, 1.6],
+      "y": [-0.3, 2.2],
+      "items": [
+        { "kind": "function", "id": "f", "fn": "x^2", "color": "blue", "label": "$y = x^2$" },
+        { "kind": "area", "fn": "f", "from": 0, "to": 1, "color": "blue", "label": "$\\frac{1}{3}$" },
+        { "kind": "tangent", "of": "f", "at": 1, "color": "orange", "label": "slope 2" },
+        { "kind": "vline", "x": 1, "label": "$x = 1$" }
+      ]
+    }
+  }
+}

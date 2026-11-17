@@ -1,0 +1,30 @@
+{
+  "match": ["habit", "habits", "progress", "stairs", "better", "presentation"],
+  "say": "Small habits work like stairs. Each step looks tiny, but climbing a little every day is what gets you to the goal.",
+  "scene": {
+    "title": "Getting 1% better every day",
+    "subtitle": "Small steps add up",
+    "placement": { "x": 0.7, "y": 0.4 },
+    "panel": {
+      "type": "3d",
+      "autoRotate": true,
+      "objects": [
+        { "id": "stairs", "shape": "model", "model": "stairs", "size": [4], "position": [0, 0, 0], "rotation": [0, 90, 0] },
+        { "id": "you", "shape": "model", "model": "person", "size": [1.6], "position": [-2.9, 0, 0.4], "rotation": [0, 90, 0] },
+        { "id": "goal", "shape": "model", "model": "trophy", "size": [1.5], "position": [3.1, 0, 0] },
+        { "id": "time", "shape": "model", "model": "hourglass", "size": [1.3], "position": [-1.2, 0, 2.6] },
+        { "id": "seed", "shape": "model", "model": "plant", "size": [1.1], "position": [1.3, 0, 2.6] }
+      ],
+      "labels": [
+        { "text": "You today", "at": "you", "offset": [-0.2, 1.3, 0] },
+        { "text": "Each step: 1%", "at": "stairs", "offset": [-0.6, 1.9, 0] },
+        { "text": "Your goal", "at": "goal", "offset": [0.2, 1.3, 0] },
+        { "text": "Time", "at": "time", "offset": [0, 1.1, 0] },
+        { "text": "Habits grow", "at": "seed", "offset": [0, 1, 0] }
+      ],
+      "arrows": [
+        { "from": [-2.2, 2.1, 0.9], "to": [1.6, 3.4, 0.9], "color": "green", "label": "Keep climbing" }
+      ]
+    }
+  }
+}

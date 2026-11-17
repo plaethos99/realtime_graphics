@@ -1,0 +1,19 @@
+{
+  "match": ["surface", "saddle", "two variables", "partial", "multivariable"],
+  "say": "This is a saddle: along x it curves up like a valley, along y it curves down like a hill, and the origin is neither a maximum nor a minimum.",
+  "scene": {
+    "title": "Saddle $z = x^2 - y^2$",
+    "subtitle": "Up along $x$, down along $y$",
+    "panel": {
+      "type": "plot3d",
+      "x": [-2, 2],
+      "y": [-2, 2],
+      "items": [
+        { "kind": "surface", "fn": "x^2 - y^2", "color": "blue", "opacity": 0.9 },
+        { "kind": "curve", "x": "t", "y": "0", "z": "t^2", "t": [-2, 2], "color": "red", "label": "$z = x^2$" },
+        { "kind": "curve", "x": "0", "y": "t", "z": "-t^2", "t": [-2, 2], "color": "green", "label": "$z = -y^2$" },
+        { "kind": "point", "at": [0, 0, 0], "label": "saddle point", "color": "ink" }
+      ]
+    }
+  }
+}

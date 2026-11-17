@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realtime Graphics Settings</title>
+    <link rel="stylesheet" href="/src/settings.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Realtime Graphics</h1>
+      <p class="lead">Hold the talk shortcut and ask about anything on your screen. You'll hear a short answer and see a drawing next to what you're looking at.</p>
+
+      <form id="form">
+        <fieldset>
+          <legend>Proxy server</legend>
+          <label>Address <input id="proxyUrl" type="url" required spellcheck="false" /></label>
+          <label>App token <input id="token" type="password" placeholder="Only if APP_TOKEN is set on the proxy" /></label>
+          <div class="row">
+            <button id="test" type="button">Test connection</button>
+            <span id="test-result" class="hint" role="status"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shortcuts</legend>
+          <label>Hold to talk <input id="talkShortcut" class="shortcut" readonly /></label>
+          <label>Type a question <input id="typeShortcut" class="shortcut" readonly /></label>
+          <p class="hint">Click a box, then press the new key combination. Use at least one of Ctrl, Alt, Shift or Win/Cmd.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Voice</legend>
+          <label class="check"><input id="speak" type="checkbox" /> Speak answers out loud</label>
+          <label>Voice <select id="voice"><option value="">Proxy default</option></select></label>
+        </fieldset>
+
+        <p id="error" class="error" role="alert" hidden></p>
+        <div class="row end">
+          <span id="saved" class="hint" role="status"></span>
+          <button id="close" type="button">Close</button>
+          <button type="submit" class="primary">Save</button>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="/src/settings.ts"></script>
+  </body>
+</html>

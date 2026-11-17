@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realtime Graphics Overlay</title>
+    <link rel="stylesheet" href="/src/overlay.css" />
+  </head>
+  <body>
+    <div id="host"></div>
+
+    <div id="status" class="status" role="status" aria-live="polite" hidden>
+      <span class="dot"></span><span id="status-text"></span>
+    </div>
+
+    <form id="ask" class="ask" hidden>
+      <input id="ask-input" autocomplete="off" spellcheck="false" placeholder="Ask about your screen…" aria-label="Question" />
+      <button type="submit">Ask</button>
+    </form>
+
+    <div id="caption" class="caption" hidden></div>
+
+    <!-- Shown for the whole recording, so everyone can see the app is listening. -->
+    <div id="rec" class="rec" hidden>
+      <span class="rec-dot"></span>
+      <div class="rec-text">
+        <div id="rec-title" class="rec-title">Recording</div>
+        <div id="rec-line" class="rec-line"></div>
+      </div>
+      <button id="rec-button" class="rec-button" type="button">Stop</button>
+    </div>
+
+    <script type="module" src="/src/overlay.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "match": ["triangle", "pythagoras", "hypotenuse", "geometry", "angle"],
+  "say": "The hypotenuse is 5. Three squared plus four squared is 25, and the square root of 25 is 5.",
+  "scene": {
+    "title": "Pythagoras: $a^2 + b^2 = c^2$",
+    "subtitle": "$3^2 + 4^2 = 9 + 16 = 25$, so $c = 5$",
+    "panel": {
+      "type": "plot",
+      "equal": true,
+      "grid": true,
+      "x": [-1, 5.5],
+      "y": [-1, 4.5],
+      "items": [
+        { "kind": "polygon", "points": [[0, 0], [4, 0], [4, 3]], "fill": true, "color": "blue" },
+        { "kind": "segment", "from": [0, 0], "to": [4, 0], "label": "$a = 4$", "color": "blue" },
+        { "kind": "segment", "from": [4, 0], "to": [4, 3], "label": "$b = 3$", "color": "blue" },
+        { "kind": "segment", "from": [0, 0], "to": [4, 3], "label": "$c = 5$", "color": "red" },
+        { "kind": "angle", "at": [4, 0], "from": [0, 0], "to": [4, 3], "right": true, "color": "ink" },
+        { "kind": "angle", "at": [0, 0], "from": [4, 0], "to": [4, 3], "label": "$36.9^\\circ$", "color": "orange" }
+      ]
+    }
+  }
+}

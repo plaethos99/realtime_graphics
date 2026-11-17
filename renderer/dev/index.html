@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realtime Graphics Bench</title>
+    <link rel="stylesheet" href="./harness.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <strong class="brand">Realtime graphics · test bench</strong>
+      <label class="field">Proxy <input id="proxy" spellcheck="false" /></label>
+      <label class="field">Token <input id="token" type="password" placeholder="optional" /></label>
+      <span id="status" class="pill">checking…</span>
+    </header>
+
+    <main class="layout">
+      <section class="stage-wrap" id="stage-wrap">
+        <div class="stage" id="stage">
+          <img id="shot" alt="Screenshot the question is about" />
+          <div id="overlay-host" class="overlay-host"></div>
+        </div>
+      </section>
+
+      <aside class="side">
+        <section>
+          <h2>Screen</h2>
+          <div class="row">
+            <button id="capture" type="button">Capture screen</button>
+            <label class="button">Upload image<input id="upload" type="file" accept="image/*" hidden /></label>
+            <button id="sample" type="button">Sample page</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Ask</h2>
+          <textarea id="question" rows="3" placeholder="How does this tensor thing make training data?"></textarea>
+          <div class="row">
+            <button id="send" type="button" class="primary">Send</button>
+            <button id="mic" type="button" title="Hold to talk">Hold to talk</button>
+            <button id="reset" type="button" title="Forget follow-up context">New topic</button>
+          </div>
+          <label class="check"><input id="speak" type="checkbox" checked /> Speak replies</label>
+        </section>
+
+        <section>
+          <h2>Demo scenes <span class="muted">(no proxy needed)</span></h2>
+          <div class="row" id="demos"></div>
+        </section>
+
+        <section class="log-section">
+          <h2>Log</h2>
+          <ol id="log" class="log"></ol>
+          <details>
+            <summary>Scene JSON</summary>
+            <pre id="scene-json"></pre>
+          </details>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

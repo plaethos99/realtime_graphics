@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Library</title>
+    <link rel="stylesheet" href="/src/library.css" />
+  </head>
+  <body>
+    <aside class="shelf">
+      <header class="shelf-head">
+        <h1>Library</h1>
+        <div class="shelf-actions">
+          <label class="btn btn-primary">
+            Add book
+            <input id="file" type="file" multiple hidden
+              accept=".epub,.mobi,.azw,.azw3,.azw4,.prc,.pdb,.kfx,.pdf,.docx,.odt,.fb2,.zip,.rtf,.html,.htm,.xhtml,.txt,.md,.markdown,.cbz,.cbr,.djvu" />
+          </label>
+          <button id="link" class="btn" type="button">Add link</button>
+          <button id="paste" class="btn" type="button">Paste text</button>
+        </div>
+      </header>
+      <div id="drop" class="drop">
+        <strong>Drop books here</strong>
+        <span>EPUB, MOBI, AZW, AZW3, PDF, DOCX, ODT, FB2, RTF, HTML, TXT, Markdown, CBZ · or Add link for web pages and videos</span>
+      </div>
+      <ul id="adding" class="adding"></ul>
+      <ul id="books" class="books" aria-label="Your books"></ul>
+    </aside>
+
+    <main class="main">
+      <section id="empty" class="empty">
+        <h2>Read anything with a tutor beside you</h2>
+        <p>Add a book, a document or some pasted text. Each part is explained aloud with drawings,
+          diagrams, graphs or 3D models, in order. Ask questions any time.</p>
+        <p class="muted">DRM-free files only. Books bought on Kindle stay locked; Project Gutenberg and Standard Ebooks work well.</p>
+      </section>
+
+      <section id="book" class="book" hidden>
+        <header class="book-head">
+          <div class="book-id">
+            <h2 id="book-title"></h2>
+            <div id="book-meta" class="muted"></div>
+          </div>
+          <label class="field">
+            Kind
+            <select id="genre">
+              <option value="technical">Technical</option>
+              <option value="selfhelp">Self-help</option>
+              <option value="fiction">Fiction</option>
+              <option value="nonfiction">Non-fiction</option>
+              <option value="meeting">Meeting</option>
+            </select>
+          </label>
+          <button id="open-source" class="btn" type="button" hidden>Open original ↗</button>
+          <button id="read" class="btn btn-primary" type="button">Start reading</button>
+          <button id="remove" class="btn btn-quiet" type="button">Remove</button>
+        </header>
+        <ol id="parts" class="parts"></ol>
+      </section>
+
+      <section id="reader" class="reader" hidden>
+        <header class="reader-head">
+          <button id="back" class="btn" type="button">‹ Contents</button>
+          <div class="where">
+            <div id="r-chapter" class="where-chapter"></div>
+            <div id="r-part" class="muted"></div>
+          </div>
+          <button id="watch" class="btn" type="button" hidden>Watch from 0:00 ↗</button>
+          <label class="check"><input id="speak" type="checkbox" checked /> Voice</label>
+          <button id="text-toggle" class="btn" type="button" aria-pressed="false">Show text</button>
+        </header>
+        <div class="reader-body">
+          <div class="stage-wrap">
+            <div id="stage" class="stage"></div>
+            <div id="stage-status" class="stage-status" hidden></div>
+          </div>
+          <aside id="text-pane" class="text-pane" hidden></aside>
+        </div>
+        <p id="caption" class="caption" aria-live="polite"></p>
+        <footer class="controls">
+          <div class="transport">
+            <button id="prev-part" class="icon" type="button" aria-label="Previous part" title="Previous part">⏮</button>
+            <button id="prev" class="icon" type="button" aria-label="Previous step" title="Previous step (←)">‹</button>
+            <button id="play" class="icon icon-main" type="button" aria-label="Pause" title="Play / pause (space)">❚❚</button>
+            <button id="next" class="icon" type="button" aria-label="Next step" title="Next step (→)">›</button>
+            <button id="next-part" class="icon" type="button" aria-label="Next part" title="Next part">⏭</button>
+            <div id="beats" class="beats"></div>
+          </div>
+          <form id="ask" class="ask">
+            <input id="ask-input" autocomplete="off" placeholder="Ask about this book…" aria-label="Ask about this book" />
+            <button class="btn" type="submit">Ask</button>
+            <button id="mic" class="btn" type="button" title="Hold to talk">Hold to talk</button>
+          </form>
+        </footer>
+      </section>
+    </main>
+
+    <dialog id="paste-dialog" class="dialog">
+      <form method="dialog" id="paste-form">
+        <h2>Paste text</h2>
+        <label class="field-block">Title <input id="paste-title" placeholder="Optional" /></label>
+        <label class="field-block">Text <textarea id="paste-text" rows="14" placeholder="Paste a chapter, an article, notes…"></textarea></label>
+        <div class="dialog-actions">
+          <button value="cancel" class="btn" type="submit">Cancel</button>
+          <button value="ok" class="btn btn-primary" type="submit">Add</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="link-dialog" class="dialog">
+      <form method="dialog">
+        <h2>Add a link</h2>
+        <p class="muted">A web page or article, a PDF or ebook file, or a video (YouTube, Vimeo, TED, Loom…).
+          Videos are read from their captions, or transcribed when they have none.</p>
+        <label class="field-block">Address <input id="link-url" type="url" placeholder="https://…" autocomplete="off" /></label>
+        <div class="dialog-actions">
+          <button value="cancel" class="btn" type="submit">Cancel</button>
+          <button value="ok" class="btn btn-primary" type="submit">Add</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script type="module" src="/src/library.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Permissions for the overlay, settings and library windows","local":true,"windows":["overlay","settings","library"],"permissions":["core:default","opener:default","core:window:allow-set-ignore-cursor-events","core:window:allow-set-focus","core:window:allow-close"]}}

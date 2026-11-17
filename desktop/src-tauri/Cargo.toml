@@ -1,0 +1,44 @@
+[package]
+name = "realtime-graphics"
+version = "0.1.0"
+description = "Ask about anything on your screen and get a spoken answer plus a drawn explanation"
+edition = "2021"
+
+[lib]
+name = "realtime_graphics_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png", "macos-private-api"] }
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+xcap = "0.9"
+image = { version = "0.25", default-features = false, features = ["jpeg"] }
+tauri-plugin-opener = "2"
+cpal = "0.18.2"
+base64 = "0.23.1"
+
+# Same versions wry uses, to answer WebView2 permission requests ourselves (see lib.rs).
+[target.'cfg(windows)'.dependencies]
+webview2-com = "0.39"
+windows = "0.62"
+
+# Screenshot resize/encode is far too slow unoptimised; keep dev builds usable.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package.image]
+opt-level = 3
+
+[profile.dev.package.xcap]
+opt-level = 3
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

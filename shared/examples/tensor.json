@@ -1,0 +1,31 @@
+{
+  "match": ["tensor", "training", "karpathy", "chatgpt", "llm"],
+  "say": "A tensor is just a grid of numbers. Each training example pairs an input tensor with the next number the model should guess.",
+  "scene": {
+    "title": "Make a question and its answer",
+    "subtitle": "Each slice of text becomes an input and a known target",
+    "placement": { "x": 0.72, "y": 0.35 },
+    "panel": {
+      "type": "diagram",
+      "width": 400,
+      "height": 300,
+      "elements": [
+        { "kind": "text", "x": 75, "y": 26, "text": "Input tensor", "size": 14, "color": "gray" },
+        { "kind": "text", "x": 320, "y": 26, "text": "Target: known answer", "size": 14, "color": "gray" },
+        { "kind": "box", "id": "in1", "x": 20, "y": 42, "w": 110, "h": 40, "label": "[18]", "color": "blue" },
+        { "kind": "box", "id": "t1", "x": 270, "y": 42, "w": 100, "h": 40, "label": "47", "color": "red" },
+        { "kind": "arrow", "from": "in1", "to": "t1" },
+        { "kind": "box", "id": "in2", "x": 20, "y": 102, "w": 110, "h": 40, "label": "[18, 47]", "color": "blue" },
+        { "kind": "box", "id": "t2", "x": 270, "y": 102, "w": 100, "h": 40, "label": "56", "color": "red" },
+        { "kind": "arrow", "from": "in2", "to": "t2" },
+        { "kind": "text", "x": 200, "y": 176, "text": "Both can be tensors", "size": 15 },
+        { "kind": "box", "id": "g", "x": 20, "y": 196, "w": 90, "h": 36, "label": "Guess", "color": "purple" },
+        { "kind": "box", "id": "c", "x": 155, "y": 196, "w": 90, "h": 36, "label": "Compare", "color": "orange" },
+        { "kind": "box", "id": "a", "x": 290, "y": 196, "w": 90, "h": 36, "label": "Adjust", "color": "green" },
+        { "kind": "arrow", "from": "g", "to": "c" },
+        { "kind": "arrow", "from": "c", "to": "a" },
+        { "kind": "arrow", "from": "a", "to": "g", "bend": -62, "dashed": true, "label": "repeat", "color": "gray" }
+      ]
+    }
+  }
+}

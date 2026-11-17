@@ -1,0 +1,56 @@
+{
+  "match": ["raspberry", "pi", "camera", "ribbon", "cable", "attach"],
+  "say": "Open the latch on the camera connector, slide the ribbon cable in straight, then press the latch closed. I'll walk you through it.",
+  "scene": {
+    "title": "Attach a camera to a Raspberry Pi",
+    "subtitle": "Demo data: check your board's manual for cable orientation",
+    "placement": { "x": 0.62, "y": 0.45 },
+    "pointers": [
+      { "x": 0.6, "y": 0.47, "w": 0.06, "h": 0.05, "label": "Camera connector", "style": "circle" }
+    ],
+    "panel": {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Find the camera connector",
+          "text": "It's the narrow slot labelled CAM or CAMERA.",
+          "elements": [
+            { "kind": "box", "id": "board", "x": 40, "y": 30, "w": 320, "h": 160, "color": "green" },
+            { "kind": "box", "x": 70, "y": 50, "w": 70, "h": 40, "label": "CPU", "color": "gray" },
+            { "kind": "box", "id": "cam", "x": 210, "y": 120, "w": 90, "h": 22, "label": "CAM", "color": "ink" },
+            { "kind": "text", "x": 255, "y": 172, "text": "here", "size": 15, "color": "red" },
+            { "kind": "arrow", "from": [255, 162], "to": "cam", "color": "red" }
+          ]
+        },
+        {
+          "title": "Gently lift the latch",
+          "text": "Pull the plastic latch up a couple of millimetres. Don't remove it.",
+          "elements": [
+            { "kind": "box", "id": "base", "x": 110, "y": 120, "w": 180, "h": 50, "label": "connector", "color": "gray" },
+            { "kind": "box", "id": "latch", "x": 110, "y": 70, "w": 180, "h": 22, "label": "latch", "color": "ink" },
+            { "kind": "arrow", "from": [320, 110], "to": [320, 50], "color": "red", "label": "lift" }
+          ]
+        },
+        {
+          "title": "Insert the ribbon cable",
+          "text": "Slide it in straight and fully, contacts facing the connector pins.",
+          "elements": [
+            { "kind": "box", "id": "conn", "x": 110, "y": 140, "w": 180, "h": 40, "label": "connector", "color": "gray" },
+            { "kind": "box", "id": "ribbon", "x": 150, "y": 20, "w": 100, "h": 80, "label": "ribbon cable", "color": "yellow" },
+            { "kind": "arrow", "from": "ribbon", "to": "conn", "color": "red", "label": "push in" }
+          ]
+        },
+        {
+          "title": "Press the latch closed",
+          "text": "Push the latch back down evenly. The cable should not pull out.",
+          "elements": [
+            { "kind": "box", "id": "conn2", "x": 110, "y": 120, "w": 180, "h": 50, "label": "connector", "color": "gray" },
+            { "kind": "box", "x": 160, "y": 30, "w": 80, "h": 90, "label": "cable", "color": "yellow" },
+            { "kind": "arrow", "from": [320, 60], "to": [320, 120], "color": "green", "label": "press" },
+            { "kind": "text", "x": 200, "y": 200, "text": "Done!", "size": 18, "color": "green" }
+          ]
+        }
+      ]
+    }
+  }
+}

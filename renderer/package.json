@@ -1,0 +1,26 @@
+{
+  "name": "realtime-graphics-renderer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Draws model-generated scenes (diagrams, steps, 3D) on a transparent overlay. Shared by the desktop and Android apps.",
+  "main": "dist/lib/realtime-graphics.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build --mode lib",
+    "build:harness": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "^5.0.0",
+    "@fontsource/patrick-hand": "^5.0.0",
+    "katex": "^0.16.47",
+    "roughjs": "^4.6.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}
